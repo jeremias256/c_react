@@ -1,31 +1,26 @@
+/* ---------------------------------------- react router ---------------------------------------- */
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-
-
 /* ---------------------------------- pages --------------------------------- */
-import { LoginPage } from '../auth'; 
-import { HeroesRoutes } from '../heroes'; 
-import { childHeroesRoutes } from './HeroRouter'; 
+import { LoginPage } from '../auth';
+import { HeroesRoutes } from '../heroes';
+import { childHeroesRoutes } from './HeroRouter';
 /* ------------------------------- error page ------------------------------- */
-import { ErrorPage } from '../heroes/pages/ErrorPage'; 
+import { ErrorPage } from '../heroes/pages/ErrorPage';
 
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <HeroesRoutes/>,
-        errorElement: <ErrorPage/>,
+        element: <HeroesRoutes />,
+        errorElement: <ErrorPage />,
         children: childHeroesRoutes,
     },
     {
         path: "/login",
-        element: <LoginPage/>
+        element: <LoginPage />
     }
 ]);
 
 export const AppRouter = () => {
-    return(
-        <>
-            <RouterProvider router={router} />
-        </>
-    );
+    return (<RouterProvider router={router} />);
 }
